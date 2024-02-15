@@ -1,0 +1,8 @@
+root ::= QuestionSchema
+QuestionSchema ::= "{" ws "\"id\":" ws string "," ws "\"type\":" ws QuestionType "," ws "\"q\":" ws string "," ws "\"required\":" ws boolean "," ws "\"choices\":" ws Choicelist "}"
+Choicelist ::= "[]" | "[" ws Choice ("," ws Choice)* "]"
+Choice ::= "{" ws "\"text\":" ws string "," ws "\"id\":" ws string "}"
+string ::= "\"" ([^"]*) "\""
+boolean ::= "true" | "false"
+ws ::= [ \t\n]*
+QuestionType ::= "\"singlechoice\"" | "\"freetext\"" | "\"multichoice\"" | "\"dropdown\"" | "\"number\"" | "\"statement\"" | "\"picturechoice\""
